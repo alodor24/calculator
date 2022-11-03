@@ -1,14 +1,15 @@
-import { Grid, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 import Layout from "../Layout";
+import ScreenApp from "../ScreenApp";
 import * as SC from './App.styles';
 
 const App = () => {
   return (
     <Layout>
       <Grid container direction="row" justifyContent="center" alignItems="center">
-        <Grid item xs={12} sm={8} md={6}>
+        <Grid item xs={12} sm={7} md={5}>
           <SC.Wrapper>
-            <p>hello world</p>
+            <ScreenApp />
           </SC.Wrapper>
         </Grid>
       </Grid>
