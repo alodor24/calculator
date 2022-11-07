@@ -1,6 +1,6 @@
 import { Paper } from '@mui/material';
 import styled from 'styled-components';
-import { fontSizes } from '../utils/theme';
+import { theme } from '../utils/theme';
 
 export const Wrapper = styled(Paper)`
   &.MuiPaper-root {
@@ -9,7 +9,7 @@ export const Wrapper = styled(Paper)`
     border-radius: 0.4rem 0.4rem 0 0;
     padding: 1rem;
     text-align: right;
-    font-size: ${fontSizes[0]};
+    font-size: ${theme.fontSizes[0]};
     white-space: nowrap;
     text-overflow: clip; 
   };

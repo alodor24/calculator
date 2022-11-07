@@ -50,10 +50,12 @@ export const Buttons = [
   { 
     id: 13, 
     text: '1', 
+    value: 1,
   },
   { 
     id: 14, 
     text: '2', 
+    value: 2,
   },
   { 
     id: 15, 
@@ -62,6 +64,7 @@ export const Buttons = [
   { 
     id: 16, 
     text: '+', 
+    value: '+',
   },
   { 
     id: 17, 
@@ -74,5 +77,6 @@ export const Buttons = [
   { 
     id: 19, 
     text: '=', 
+    value: '=',
   },
 ];
