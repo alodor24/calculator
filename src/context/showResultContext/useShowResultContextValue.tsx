@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const useShowResultContextValue = () => {
-  const [firstValue, setFirstValue] = useState<number>(0);
-  const [secondValue, setSecondValue] = useState<number>(0);
+  const [firstValue, setFirstValue] = useState<Array<string>>([]);
+  const [secondValue, setSecondValue] = useState<Array<string>>([]);
   const [option, setOption] = useState<boolean>(false);
   const [result, setResult] = useState<number>(0);
   

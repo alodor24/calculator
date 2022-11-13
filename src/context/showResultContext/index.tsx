@@ -1,10 +1,10 @@
 import { createContext } from "react";
 
 export type ShowResultData = {
-  firstValue: number;
-  setFirstValue: React.Dispatch<React.SetStateAction<number>>;
-  secondValue: number;
-  setSecondValue: React.Dispatch<React.SetStateAction<number>>;
+  firstValue: string[];
+  setFirstValue: React.Dispatch<React.SetStateAction<string[]>>;
+  secondValue: string[];
+  setSecondValue: React.Dispatch<React.SetStateAction<string[]>>;
   option: boolean;
   setOption: React.Dispatch<React.SetStateAction<boolean>>;
   result: number;

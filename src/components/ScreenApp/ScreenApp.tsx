@@ -2,11 +2,15 @@ import useShowResultContext from '../../context/showResultContext/useShowResultC
 import * as SC from './ScreenApp.styles';
 
 const ScreenApp = () => {
-  const { firstValue, secondValue, result } = useShowResultContext();
+  const { firstValue, secondValue, option } = useShowResultContext();
 
   return (
     <SC.Wrapper>
-      <span>{ firstValue }</span>
+      {
+        option 
+        ? <span>{ secondValue.length ? secondValue : 0}</span>
+        : <span>{ firstValue.length ? firstValue : 0}</span>
+      }
     </SC.Wrapper>
   )
 }

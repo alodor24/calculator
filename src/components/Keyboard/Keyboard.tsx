@@ -1,28 +1,40 @@
 import useShowResultContext from "../../context/showResultContext/useShowResultContext";
-import { Buttons } from "./constants";
+import { ARITHMETIC_OPERATORS, Buttons, NUMERIC_PANEL } from "./constants";
 import * as SC from './Keyboard.styles';
 
 const Keyboard = () => {
   const { firstValue, setFirstValue, secondValue, setSecondValue, option, setOption, setResult } = useShowResultContext();
 
-  const handleClick = (value?: string | number) => {
-    if (value === 1 || value === 2) {
+  const handleClick = (value?: string) => {
+    if (value && NUMERIC_PANEL.includes(value)) {
       if (!option) {
-        setFirstValue(value);
+        setFirstValue([...firstValue, value]);
       } else {
-        setSecondValue(value);
+        setSecondValue([...secondValue, value]);
       }
     }
 
-    if (value === '+') {
-      setOption(!option);
+    if (value && ARITHMETIC_OPERATORS.includes(value)) {
+      if (firstValue.length) {
+        setOption(true);
+      }
+    }
+
+    if (value === 'AC') {
+      setFirstValue([]);
+      setSecondValue([]);
+      setOption(false);
+      setResult(0);
     }
 
     if (value === '=') {
-      const result = firstValue + secondValue;
-      setResult(result);
-      setOption(!option);
-      setFirstValue(result);
+      if (firstValue.length && secondValue.length) {
+        const result = parseFloat(firstValue.join('')) / parseFloat(secondValue.join(''));
+        setResult(result);
+        setOption(!option);
+        setFirstValue([result.toString()]);
+        setSecondValue([]);
+      }
     }
   };
 
