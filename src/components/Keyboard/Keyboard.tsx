@@ -8,6 +8,26 @@ const Keyboard = () => {
   const { firstValue, setFirstValue, secondValue, setSecondValue, option, setOption, setResult } = useShowResultContext();
   const [operator, setOperator] = useState<string>('');
 
+  const specialOptions = {
+    'AC': () => {
+      setFirstValue([]);
+      setSecondValue([]);
+      setOption(false);
+      setResult(0);
+      setOperator('');
+    },
+    '=': () => {
+      if (firstValue.length && secondValue.length) {
+        const result = calculator(operator, firstValue, secondValue);
+        setResult(result);
+        setOption(false);
+        setFirstValue([result.toString()]);
+        setSecondValue([]);
+        setOperator('');
+      }
+    },
+  };
+
   const handleClick = (value?: string) => {
     if (value && NUMERIC_PANEL.includes(value)) {
       if (!option) {
@@ -24,24 +44,7 @@ const Keyboard = () => {
       }
     }
 
-    if (value === 'AC') {
-      setFirstValue([]);
-      setSecondValue([]);
-      setOption(false);
-      setResult(0);
-      setOperator('');
-    }
-
-    if (value === '=') {
-      if (firstValue.length && secondValue.length) {
-        const result = calculator(operator, firstValue, secondValue);
-        setResult(result);
-        setOption(false);
-        setFirstValue([result.toString()]);
-        setSecondValue([]);
-        setOperator('');
-      }
-    }
+    specialOptions[value as keyof typeof specialOptions]();
   };
 
   return (
