@@ -81,8 +81,8 @@ export const Buttons = [
   },
   { 
     id: 17, 
-    text: ',', 
-    value: ',', 
+    text: '.', 
+    value: '.', 
   },
   { 
     id: 18, 
