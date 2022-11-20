@@ -10,6 +10,7 @@ export const theme = {
     ],
     grey: [
       '#263238',
+      '#78909c',
     ],
     orange: [
       '#ff3d00',
@@ -22,6 +23,9 @@ export const theme = {
     ],
     blue: [
       '#00b8d4',
+    ],
+    red: [
+      '#ff1744',
     ],
   }
 };

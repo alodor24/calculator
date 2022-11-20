@@ -12,6 +12,9 @@ const Layout: React.FC<Props> = ({ children }) => {
         Calculator React Project
       </SC.Title>
       { children }
+      <SC.Footer>
+        <SC.FooterText>Made with <SC.IconCustom /> by alodor</SC.FooterText>
+      </SC.Footer>
     </Container>
   )
 }
