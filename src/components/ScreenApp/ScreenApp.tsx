@@ -1,4 +1,5 @@
 import useShowResultContext from '../../context/showResultContext/useShowResultContext';
+import { REFERENCIAL_NUMBERS } from '../../utils/constants';
 import * as SC from './ScreenApp.styles';
 
 const ScreenApp = () => {
@@ -8,8 +9,14 @@ const ScreenApp = () => {
     <SC.Wrapper>
       {
         option 
-        ? <span>{ secondValue.length ? secondValue : 0}</span>
-        : <span>{ firstValue.length ? firstValue : 0}</span>
+        ? <span>{ secondValue.length 
+          ? secondValue.slice(REFERENCIAL_NUMBERS.characterInitial, REFERENCIAL_NUMBERS.characterNumbers) 
+          : REFERENCIAL_NUMBERS.characterInitial}
+          </span>
+        : <span>{ firstValue.length 
+          ? firstValue.slice(REFERENCIAL_NUMBERS.characterInitial, REFERENCIAL_NUMBERS.characterNumbers) 
+          : REFERENCIAL_NUMBERS.characterInitial}
+          </span>
       }
     </SC.Wrapper>
   )
