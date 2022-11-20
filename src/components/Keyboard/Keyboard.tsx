@@ -40,6 +40,17 @@ const Keyboard = () => {
         setFirstValue(result.toString().split(''));
       }
     },
+    '.': (value: string) => {
+      if (!option) {
+        if (!firstValue.includes(value)) {
+          setFirstValue([...firstValue, value]);
+        }
+      } else {
+        if (!secondValue.includes(value)) {
+          setSecondValue([...secondValue, value]);
+        }
+      }
+    },
   };
 
   const handleClick = (value: string) => {
@@ -51,26 +62,24 @@ const Keyboard = () => {
       }
     }
 
-    if (value === '.') {
-      if (!option) {
-        if (!firstValue.includes(value)) {
+    if (ARITHMETIC_OPERATORS.includes(value)) {
+      if (value === '-' && (!firstValue.length || !secondValue.length)) {
+        if (!option) {
           setFirstValue([...firstValue, value]);
-        }
-      } else {
-        if (!secondValue.includes(value)) {
+        } else {
           setSecondValue([...secondValue, value]);
         }
       }
-    }
 
-    if (ARITHMETIC_OPERATORS.includes(value)) {
       if (firstValue.length) {
         setOption(true);
-        setOperator(value);
+        if (!operator) {
+          setOperator(value);
+        }
       }
     }
 
-    specialOptions[value as keyof typeof specialOptions]();
+    specialOptions[value as keyof typeof specialOptions](value);
   };
 
   return (
