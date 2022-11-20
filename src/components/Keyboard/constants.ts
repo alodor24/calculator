@@ -98,4 +98,4 @@ export const Buttons = [
 
 export const NUMERIC_PANEL = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-export const ARITHMETIC_OPERATORS = ['+', '-', '*', '/', '%', '√'];
+export const ARITHMETIC_OPERATORS = ['+', '-', '*', '/', '%'];
