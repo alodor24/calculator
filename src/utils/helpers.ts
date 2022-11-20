@@ -16,3 +16,8 @@ export const calculatorSquareRoot = (firstValue: string[]): number => {
   const parseValue = parseFloat(firstValue.join(''));
   return Math.sqrt(parseValue);
 };
+
+export const calculatorPorcentage = (firstValue: string[]): number => {
+  const parseValue = parseFloat(firstValue.join(''));
+  return parseValue / 100;
+};

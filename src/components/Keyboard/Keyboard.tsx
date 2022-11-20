@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useShowResultContext from "../../context/showResultContext/useShowResultContext";
-import { calculator, calculatorSquareRoot } from "../../utils/helpers";
+import { calculator, calculatorPorcentage, calculatorSquareRoot } from "../../utils/helpers";
 import { ARITHMETIC_OPERATORS, Buttons, NUMERIC_PANEL } from "./constants";
 import * as SC from './Keyboard.styles';
 
@@ -29,6 +29,13 @@ const Keyboard = () => {
     '√': () => {
       if (firstValue.length) {
         const result = calculatorSquareRoot(firstValue);
+        setResult(result);
+        setFirstValue(result.toString().split(''));
+      }
+    },
+    '%': () => {
+      if (firstValue.length) {
+        const result = calculatorPorcentage(firstValue);
         setResult(result);
         setFirstValue(result.toString().split(''));
       }
