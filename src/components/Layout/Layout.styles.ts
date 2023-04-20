@@ -8,7 +8,7 @@ export const Title = styled(Typography)`
 `;
 
 export const Footer = styled.footer`
-  margin-top: 3rem;
+  margin: 3rem 0;
   text-align: center;
 `;
 
